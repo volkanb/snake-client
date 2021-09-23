@@ -9,9 +9,14 @@ const connect = function () {
   // interpret incoming data as text
   conn.setEncoding("utf8");
 
-  // display received data event handler
+  // 'data' event handler: displays incoming message from server
   conn.on("data", (data) => {
     console.log(data);
+  });
+
+  // 'connect' event handler: displays message on connection
+  conn.on('connect', () => {
+    console.log('Successfully connected to game server!');
   });
 
   return conn;
